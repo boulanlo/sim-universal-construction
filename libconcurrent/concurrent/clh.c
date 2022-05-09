@@ -8,6 +8,7 @@ void CLHLock(CLHLockStruct *l, int pid) {
     l->MyNode[pid]->locked = true;
     l->MyPred[pid] = (CLHLockNode *)synchSWAP(&l->Tail, (void *)l->MyNode[pid]);
     while (l->MyPred[pid]->locked == true) {
+        ++lock_wait_count;
         synchResched();
     }
     synchFullFence();
