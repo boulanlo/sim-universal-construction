@@ -12,6 +12,10 @@
 #include <primitives.h>
 #include <stdbool.h>
 
+#include <stdatomic.h>
+
+static atomic_int lock_count;
+
 /// @brief CLHLockStruct used for announcing that a thread wants to acquire the lock.
 typedef union CLHLockNode {
     /// @brief This is true whenever a thread executes CLHLock and waits until it acquires the lock.
