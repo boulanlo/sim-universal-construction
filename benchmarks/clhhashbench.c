@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
     synchStartThreadsN(bench_args.nthreads, Execute, bench_args.fibers_per_thread);
     synchJoinThreadsN(bench_args.nthreads - 1);
 
-    fprintf(stderr, "%d", lock_count);
+    fprintf(stderr, "lock_count: %d\n", lock_count);
     printf("time: %d (ms)\tthroughput: %.2f (millions ops/sec)\t", (int)(d2 - d1), bench_args.runs * bench_args.nthreads / (1000.0 * (d2 - d1)));
     synchPrintStats(bench_args.nthreads, bench_args.total_runs);
 
