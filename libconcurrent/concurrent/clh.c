@@ -3,6 +3,7 @@
 #include <threadtools.h>
 
 void CLHLock(CLHLockStruct *l, int pid) {
+    ++atomic_count;
     synchNonTSOFence();
     l->MyNode[pid]->locked = true;
     l->MyPred[pid] = (CLHLockNode *)synchSWAP(&l->Tail, (void *)l->MyNode[pid]);
