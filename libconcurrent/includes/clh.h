@@ -14,7 +14,7 @@
 
 #include <stdatomic.h>
 
-static atomic_int lock_count;
+atomic_int lock_count;
 
 /// @brief CLHLockStruct used for announcing that a thread wants to acquire the lock.
 typedef union CLHLockNode {
