@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     CLHHashStructInit(&object_struct, N_BUCKETS, bench_args.nthreads);
 
     th_state = synchGetAlignedMemory(CACHE_LINE_SIZE, sizeof(CLHHashThreadState));
-    CLHHashThreadStateInit(&object_strict, th_state, N_BUCKETS, 0);
+    CLHHashThreadStateInit(&object_struct, th_state, N_BUCKETS, 0);
 
     CLHHashInsert(&object_struct, th_state, 1, 1, 0);
     CLHHashDelete(&object_struct, th_state, 1, 0);
