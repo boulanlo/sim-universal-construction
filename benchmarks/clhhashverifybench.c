@@ -23,7 +23,7 @@ CLHHash object_struct CACHE_ALIGN;
 CLHHashThreadState *th_state;
 
 int main(int argc, char *argv[]) {
-    CLHHashStructInit(&object_struct, N_BUCKETS, bench_args.nthreads);
+    CLHHashStructInit(&object_struct, N_BUCKETS, 16);
 
     th_state = synchGetAlignedMemory(CACHE_LINE_SIZE, sizeof(CLHHashThreadState));
     CLHHashThreadStateInit(&object_struct, th_state, N_BUCKETS, 0);
