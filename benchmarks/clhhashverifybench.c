@@ -30,9 +30,7 @@ int main(int argc, char *argv[]) {
     CLHHashThreadStateInit(&object_strict, th_state, N_BUCKETS, (int)id);
 
     CLHHashInsert(&object_struct, th_state, 1, 1, 0);
-    int res = CLHHashDelete(&object_struct, th_state, 1, 0);
-
-    fprintf(stderr, "res: %d", res);
+    CLHHashDelete(&object_struct, th_state, 1, 0);
 
     int search = CLHHashSearch(&object_struct, th_state, 1, 0);
 
